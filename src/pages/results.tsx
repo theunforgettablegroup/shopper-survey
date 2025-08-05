@@ -129,7 +129,7 @@ const Results: React.FC = () => {
           maxWidth: 420,
           margin: '0 auto',
           // Hide on desktop/tablet
-          display: 'none',
+          // display: 'none',
         }}
       >
         <button
@@ -169,7 +169,7 @@ const Results: React.FC = () => {
           View All Shopper Profiles
         </button>
       </div>
-      <style jsx>{`
+      <style>{`
         @media (max-width: 600px) {
           .results-buttons-desktop {
             display: none !important;
