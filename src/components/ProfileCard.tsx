@@ -122,9 +122,9 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ type }) => {
             src={profile.image}
             alt={profile.name}
             style={{
-              width: 160,
+              width: 'auto',
               height: 160,
-              objectFit: 'cover',
+              objectFit: 'contain',
             //   objectPosition: 'center top',
               borderRadius: '1.25rem',
               marginBottom: '1rem',

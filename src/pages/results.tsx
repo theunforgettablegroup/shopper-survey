@@ -25,7 +25,11 @@ const Results: React.FC = () => {
     <div
       style={{
         minHeight: '100vh',
-        background: `linear-gradient(135deg, ${mainColors.yellow} 0%, ${mainColors.accent} 100%)`,
+        // background: `linear-gradient(135deg, ${mainColors.yellow} 0%, ${mainColors.accent} 100%)`,
+        backgroundImage: 'url(/images/bg.png)',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center center',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
