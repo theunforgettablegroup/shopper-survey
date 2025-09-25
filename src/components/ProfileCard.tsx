@@ -22,7 +22,7 @@ const profiles: Record<string, ShopperProfile> = {
       'The loyal companion, always by your side. Toto is playful, protective, and brings joy wherever he goes.',
     image: '/images/toto.png',
     details:
-      'A pup that knows what he wants, Toto embodies the shopper who is very focused when they shop. Often on a mission and never wavering with a desire to find it without delay. Much like a pup dashing straight for his ball, \'Toto\' shoppers zero in on what we want often ignoring everything else. First to find the latest Smart collar, stylish bowl, or indestructible dog toy.',
+      "A pup that knows what he wants, Toto embodies the shopper who is very focused when they shop. Often on a mission and never wavering with a desire to find it without delay. Much like a pup dashing straight for his ball, 'Toto' shoppers zero in on what we want often ignoring everything else. First to find the latest Smart collar, stylish bowl, or indestructible dog toy.",
   },
   Tin: {
     name: 'Tin',
@@ -38,7 +38,7 @@ const profiles: Record<string, ShopperProfile> = {
       'The brave soul, facing fears with courage. Lyon is bold, determined, and inspires others to be their best.',
     image: '/images/lyon.png',
     details:
-      'Confident in life, the Lyon Shopper often hesitates before making a buying decision without the endorsement of an authoritative figure. Validation or instructions from trusted sources if very helpful in combatting the fear of being misled or facing the unpredictability of their choices. Lyons try to fix buyer\'s remorse before they make a purchase or put off making a purchase to build their confidence.',
+      "Confident in life, the Lyon Shopper often hesitates before making a buying decision without the endorsement of an authoritative figure. Validation or instructions from trusted sources if very helpful in combatting the fear of being misled or facing the unpredictability of their choices. Lyons try to fix buyer's remorse before they make a purchase or put off making a purchase to build their confidence.",
   },
   'Hutch & Straw': {
     name: 'Hutch & Straw',
@@ -70,7 +70,7 @@ const profiles: Record<string, ShopperProfile> = {
       'The celebrators, honoring the journey and its lessons. Amen & Bow are grateful, joyful, and bring closure and reflection.',
     image: '/images/amen-bow.png',
     details:
-      'The Munchkin shopper buys out of necessity, frequently making purchases without giving it much thought—just a quick grab of their phone, and the order is placed. Their shopping list is practical, often filled with essentials such as groceries, gifts, or the latest electronics. Deep down, we\'re all children at heart, shopping with the carefree joy of someone who shops \'as if no one is watching.\'',
+      "The Munchkin shopper buys out of necessity, frequently making purchases without giving it much thought—just a quick grab of their phone, and the order is placed. Their shopping list is practical, often filled with essentials such as groceries, gifts, or the latest electronics. Deep down, we're all children at heart, shopping with the carefree joy of someone who shops 'as if no one is watching.'",
   },
 };
 
@@ -125,7 +125,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ type }) => {
               width: 'auto',
               height: 160,
               objectFit: 'contain',
-            //   objectPosition: 'center top',
+              //   objectPosition: 'center top',
               borderRadius: '1.25rem',
               marginBottom: '1rem',
               border: '3px solid #FFD600',
@@ -135,12 +135,17 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ type }) => {
             onClick={() => setFlipped(true)}
             title="Click for more details"
           />
-          <h3 style={{ color: '#F7B32B', fontWeight: 700, fontSize: '1.3rem', marginBottom: '0.5rem' }}>
+          <h3
+            style={{
+              color: '#F7B32B',
+              fontWeight: 700,
+              fontSize: '1.3rem',
+              marginBottom: '0.5rem',
+            }}
+          >
             {profile.name}
           </h3>
-          <p style={{ color: '#222', fontSize: '1rem', lineHeight: 1.5 }}>
-            {profile.description}
-          </p>
+          <p style={{ color: '#222', fontSize: '1rem', lineHeight: 1.5 }}>{profile.description}</p>
           <div style={{ marginTop: '0.75rem', color: '#888', fontSize: '0.95rem' }}>
             <span>Click the image for more details</span>
           </div>
@@ -164,12 +169,12 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ type }) => {
             justifyContent: 'center',
           }}
         >
-          <h3 style={{ color: '#F7B32B', fontWeight: 700, fontSize: '1.3rem', marginBottom: '1rem' }}>
+          <h3
+            style={{ color: '#F7B32B', fontWeight: 700, fontSize: '1.3rem', marginBottom: '1rem' }}
+          >
             {profile.name}
           </h3>
-          <p style={{ color: '#222', fontSize: '1rem', lineHeight: 1.5 }}>
-            {profile.details}
-          </p>
+          <p style={{ color: '#222', fontSize: '1rem', lineHeight: 1.5 }}>{profile.details}</p>
           <button
             onClick={() => setFlipped(false)}
             style={{

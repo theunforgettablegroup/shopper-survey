@@ -2,18 +2,20 @@ import React from 'react';
 
 type QuestionProps = {
   question: string;
-  answers: string[];
-  onAnswer: (answer: string) => void;
+  answers: { id: number; answer_text: string }[];
+  onAnswer: (answer: number) => void;
 };
 
 const Question: React.FC<QuestionProps> = ({ question, answers, onAnswer }) => (
   <div>
-    <h2 style={{ fontSize: '1.2rem', color: '#222', marginBottom: '1rem', textAlign: 'center' }}>{question}</h2>
+    <h2 style={{ fontSize: '1.2rem', color: '#222', marginBottom: '1rem', textAlign: 'center' }}>
+      {question}
+    </h2>
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
       {answers.map((answer) => (
         <button
-          key={answer}
-          onClick={() => onAnswer(answer)}
+          key={answer.id}
+          onClick={() => onAnswer(answer.id)}
           style={{
             padding: '0.75rem 1.25rem',
             background: '#FFD600',
@@ -27,7 +29,7 @@ const Question: React.FC<QuestionProps> = ({ question, answers, onAnswer }) => (
             transition: 'background 0.2s',
           }}
         >
-          {answer}
+          {answer.answer_text}
         </button>
       ))}
     </div>
