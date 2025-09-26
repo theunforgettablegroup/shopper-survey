@@ -1,5 +1,6 @@
 // Add at the top of your page component (e.g., in src/pages/results.tsx or index.tsx)
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 export const AnalyticsBanner: React.FC = () => {
   const [visible, setVisible] = useState(true);
@@ -41,9 +42,9 @@ export const AnalyticsBanner: React.FC = () => {
       <span>
         We collect anonymous analytics data (browser, device, location) to improve the survey
         experience.{' '}
-        <a href="/PrivacyPolicy" style={{ color: '#222', textDecoration: 'underline' }}>
+        <Link href="/privacy-policy" style={{ color: '#222', textDecoration: 'underline' }}>
           Privacy Policy
-        </a>
+        </Link>
       </span>
       <button
         onClick={handleClose}

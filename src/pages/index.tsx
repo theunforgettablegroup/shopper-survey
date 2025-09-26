@@ -61,6 +61,7 @@ const getShopperType = (responses: string[]) => {
     ) {
       hutch++;
     } else if (fourth === 'I just shop and ask for forgiveness later.') {
+      amen++;
       return 'Amen & Bow';
     } else if (fourth === 'Money is no object.') {
       glinda++;
@@ -192,9 +193,7 @@ const Home: React.FC = () => {
 
     const onBeforeUnload = (e: BeforeUnloadEvent) => {
       handleAbandon();
-      // Optionally show a browser prompt
-      // e.preventDefault();
-      // e.returnValue = '';
+      e.preventDefault();
     };
 
     window.addEventListener('beforeunload', onBeforeUnload);
