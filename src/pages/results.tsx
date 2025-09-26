@@ -18,7 +18,11 @@ const Results: React.FC = () => {
   };
 
   const handleViewAllProfiles = () => {
-    router.push('/all-profiles');
+    if (profile) {
+      router.push(`/all-profiles?profile=${profile}`);
+    } else {
+      router.push('/all-profiles');
+    }
   };
 
   return (

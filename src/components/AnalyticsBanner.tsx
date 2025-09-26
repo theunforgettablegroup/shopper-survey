@@ -31,7 +31,7 @@ export const AnalyticsBanner: React.FC = () => {
         top: 0,
         left: 0,
         right: 0,
-        zIndex: 999,
+        zIndex: 9999,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useRouter } from 'next/router';
 import Image from 'next/image';
 
 type ShopperProfile = {
@@ -75,136 +76,114 @@ const profiles: Record<string, ShopperProfile> = {
   },
 };
 
-type ProfileCardProps = {
-  type: keyof typeof profiles;
-};
+const AllProfiles: React.FC = () => {
+  const router = useRouter();
 
-const ProfileCard: React.FC<ProfileCardProps> = ({ type }) => {
-  const profile = profiles[type] || profiles['Dorothee'];
-  const [flipped, setFlipped] = useState(false);
+  // Optionally, get the user's profile from the query string
+  const { profile } = router.query;
+
+  const handleBack = () => {
+    // If profile is available, preserve it in the query string
+    if (profile) {
+      router.push(`/results?profile=${profile}`);
+    } else {
+      router.push('/results');
+    }
+  };
 
   return (
     <div
       style={{
-        perspective: '1200px',
-        maxWidth: 420,
-        margin: '0 auto',
+        minHeight: '100vh',
+        background: 'linear-gradient(135deg, #FFD600 0%, #F7B32B 100%)',
+        fontFamily: 'Montserrat, Arial, sans-serif',
+        padding: '1rem',
       }}
     >
-      <div
+      <button
+        onClick={handleBack}
         style={{
-          position: 'relative',
-          width: '100%',
-          height: 370,
-          transition: 'transform 0.6s cubic-bezier(.4,2,.3,1)',
-          transformStyle: 'preserve-3d',
-          transform: flipped ? 'rotateY(180deg)' : 'none',
+          display: 'block',
+          margin: '0 auto 2rem auto',
+          padding: '0.75rem 1.5rem',
+          background: '#222',
+          color: '#FFD600',
+          fontWeight: 700,
+          fontSize: '1rem',
+          border: 'none',
+          borderRadius: '0.75rem',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+          cursor: 'pointer',
+          transition: 'background 0.2s',
         }}
       >
-        {/* Front Side */}
-        <div
-          style={{
-            background: '#FFF9E5',
-            borderRadius: '1.25rem',
-            boxShadow: '0 4px 16px rgba(247,179,43,0.12)',
-            // padding: '2rem 1.5rem',
-            textAlign: 'center',
-            position: 'absolute',
-            width: '100%',
-            height: '100%',
-            backfaceVisibility: 'hidden',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
+        Back to My Results
+      </button>
+      <h1 style={{ textAlign: 'center', color: '#222', marginBottom: '2rem', fontSize: '2rem' }}>
+        All Shopper Profiles
+      </h1>
+      <div
+        style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: '2rem',
+          justifyContent: 'center',
+          maxWidth: 900,
+          margin: '0 auto',
+        }}
+      >
+        {Object.values(profiles).map((profile) => (
           <div
+            key={profile.name}
             style={{
-              position: 'relative',
-              width: '100%',
-              maxWidth: 220,
-              height: 160,
-              margin: '0 auto',
-            }}
-          >
-            <Image
-              src={profile.image}
-              alt={profile.name}
-              fill
-              style={{
-                objectFit: 'contain',
-                borderRadius: '1.25rem',
-                marginBottom: '1rem',
-                border: '3px solid #FFD600',
-                cursor: 'pointer',
-                transition: 'box-shadow 0.2s',
-              }}
-              onClick={() => setFlipped(true)}
-            />
-          </div>
-          <h3
-            style={{
-              color: '#F7B32B',
-              fontWeight: 700,
-              fontSize: '1.3rem',
-              marginBottom: '0.5rem',
-            }}
-          >
-            {profile.name}
-          </h3>
-          <p style={{ color: '#222', fontSize: '1rem', lineHeight: 1.5 }}>{profile.description}</p>
-          <div style={{ marginTop: '0.75rem', color: '#888', fontSize: '0.95rem' }}>
-            <span>Click the image for more details</span>
-          </div>
-        </div>
-        {/* Back Side */}
-        <div
-          style={{
-            background: '#FFF3C1',
-            borderRadius: '1.25rem',
-            boxShadow: '0 4px 16px rgba(247,179,43,0.12)',
-            // padding: '2rem 1.5rem',
-            textAlign: 'center',
-            position: 'absolute',
-            width: '100%',
-            height: '100%',
-            backfaceVisibility: 'hidden',
-            transform: 'rotateY(180deg)',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <h3
-            style={{ color: '#F7B32B', fontWeight: 700, fontSize: '1.3rem', marginBottom: '1rem' }}
-          >
-            {profile.name}
-          </h3>
-          <p style={{ color: '#222', fontSize: '1rem', lineHeight: 1.5 }}>{profile.details}</p>
-          <button
-            onClick={() => setFlipped(false)}
-            style={{
-              marginTop: '2rem',
-              padding: '0.5rem 1.25rem',
-              background: '#FFD600',
-              color: '#222',
-              border: 'none',
-              borderRadius: '0.75rem',
-              fontWeight: 600,
-              fontSize: '1rem',
+              background: '#fff',
+              borderRadius: '1.25rem',
               boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
-              cursor: 'pointer',
-              transition: 'background 0.2s',
+              padding: '1.5rem',
+              width: '100%',
+              maxWidth: 320,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
             }}
           >
-            Back
-          </button>
-        </div>
+            <div style={{ position: 'relative', width: 120, height: 120, marginBottom: '1rem' }}>
+              <Image
+                src={profile.image}
+                alt={profile.name}
+                fill
+                sizes="120px"
+                style={{ objectFit: 'contain', borderRadius: '1rem' }}
+              />
+            </div>
+            <h2
+              style={{
+                color: '#222',
+                fontSize: '1.25rem',
+                margin: '0.5rem 0',
+                textAlign: 'center',
+              }}
+            >
+              {profile.name}
+            </h2>
+            <p
+              style={{
+                color: '#555',
+                fontSize: '1rem',
+                textAlign: 'center',
+                marginBottom: '0.5rem',
+              }}
+            >
+              {profile.description}
+            </p>
+            <p style={{ color: '#333', fontSize: '0.95rem', textAlign: 'center' }}>
+              {profile.details}
+            </p>
+          </div>
+        ))}
       </div>
     </div>
   );
 };
 
-export default ProfileCard;
+export default AllProfiles;
