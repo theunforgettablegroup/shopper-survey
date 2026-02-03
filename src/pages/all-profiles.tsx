@@ -1,6 +1,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import Link from 'next/link';
 
 type ShopperProfile = {
   name: string;
@@ -119,6 +120,23 @@ const AllProfiles: React.FC = () => {
       >
         Back to My Results
       </button>
+
+      <div style={{ maxWidth: 900, margin: '0 auto' }}>
+        <p style={{ textAlign: 'center', color: '#222', marginBottom: '2rem' }}>
+          We may all take on different shopping roles based on the current need on hand, but we all
+          have an underlying shopping style that drives how we shop or don't shop in some cases.
+          Shopping should be as enjoyable and belong as possible and the team at The Unforgettable
+          Group is working hard to make that happen. Visit{' '}
+          <Link
+            style={{ color: '#222', fontWeight: 700, textDecoration: 'underline' }}
+            href="https://wildlovetails.com"
+          >
+            wildlovetails.com
+          </Link>{' '}
+          our inaugural online shopping site dedicated to pets and their people. We have many more
+          product categories. Follow us to stay in the know.
+        </p>
+      </div>
       <h1 style={{ textAlign: 'center', color: '#222', marginBottom: '2rem', fontSize: '2rem' }}>
         All Shopper Profiles
       </h1>

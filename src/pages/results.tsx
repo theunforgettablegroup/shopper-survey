@@ -1,6 +1,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import ProfileCard from '../components/ProfileCard';
+import Link from 'next/link';
 
 const mainColors = {
   yellow: '#FFD600',
@@ -71,6 +72,23 @@ const Results: React.FC = () => {
             No profile data available. Please complete the questionnaire.
           </p>
         )}
+
+        <div style={{ maxWidth: 900, margin: '2rem auto' }}>
+          <p style={{ textAlign: 'center', color: '#222', marginBottom: '2rem' }}>
+            We may all take on different shopping roles based on the current need on hand, but we
+            all have an underlying shopping style that drives how we shop or don't shop in some
+            cases. Shopping should be as enjoyable as possible and the team at The Unforgettable
+            Group is working hard to make that happen. Visit{' '}
+            <Link
+              style={{ color: '#222', fontWeight: 700, textDecoration: 'underline' }}
+              href="https://wildlovetails.com"
+            >
+              wildlovetails.com
+            </Link>{' '}
+            our inaugural online shopping site dedicated to pets and their people. We have many more
+            product categories. Follow us to stay in the know.
+          </p>
+        </div>
         {/* Desktop/Tablet buttons */}
         <div
           className="results-buttons-desktop"
