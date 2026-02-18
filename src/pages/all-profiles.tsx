@@ -138,7 +138,7 @@ const AllProfiles: React.FC = () => {
         </p>
       </div>
       <h1 style={{ textAlign: 'center', color: '#222', marginBottom: '2rem', fontSize: '2rem' }}>
-        All Shopper Profiles
+                    All Shopper Profiles
       </h1>
       <div
         style={{
