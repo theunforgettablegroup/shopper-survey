@@ -76,7 +76,7 @@ const Results: React.FC = () => {
         <div style={{ maxWidth: 900, margin: '2rem auto' }}>
           <p style={{ textAlign: 'center', color: '#222', marginBottom: '2rem' }}>
             We may all take on different shopping roles based on the current need on hand, but we
-            all have an underlying shopping style that drives how we shop or don't shop in some
+            all have an underlying shopping style that drives how we shop or don&apos;t shop in some
             cases. Shopping should be as enjoyable as possible and the team at The Unforgettable
             Group is working hard to make that happen. Visit{' '}
             <Link

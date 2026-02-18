@@ -124,9 +124,9 @@ const AllProfiles: React.FC = () => {
       <div style={{ maxWidth: 900, margin: '0 auto' }}>
         <p style={{ textAlign: 'center', color: '#222', marginBottom: '2rem' }}>
           We may all take on different shopping roles based on the current need on hand, but we all
-          have an underlying shopping style that drives how we shop or don't shop in some cases.
-          Shopping should be as enjoyable and belong as possible and the team at The Unforgettable
-          Group is working hard to make that happen. Visit{' '}
+          have an underlying shopping style that drives how we shop or don&apos;t shop in some
+          cases. Shopping should be as enjoyable and belong as possible and the team at The
+          Unforgettable Group is working hard to make that happen. Visit{' '}
           <Link
             style={{ color: '#222', fontWeight: 700, textDecoration: 'underline' }}
             href="https://wildlovetails.com"
@@ -138,7 +138,7 @@ const AllProfiles: React.FC = () => {
         </p>
       </div>
       <h1 style={{ textAlign: 'center', color: '#222', marginBottom: '2rem', fontSize: '2rem' }}>
-                    All Shopper Profiles
+        All Shopper Profiles
       </h1>
       <div
         style={{
